@@ -1,0 +1,16 @@
+#root {
+  margin: 15px;
+  text-align:center;
+}
+
+.shelf {
+  background-color: rgb(94, 94, 94);
+  max-width: 93vw;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: flex-start;
+  gap: 2px;
+  border: 20px solid rgb(99, 52, 21);
+  border-radius: 4px;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Link Generator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      button {
+        padding: 10px 15px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      #linksContainer,
+      #savedLinksContainer {
+        margin-top: 20px;
+      }
+      .link {
+        padding: 8px;
+        margin: 5px 0;
+        background-color: #f2f2f2;
+        border-radius: 4px;
+        word-break: break-all;
+      }
+      h2 {
+        margin-top: 30px;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 5px;
+      }
+      .button-group {
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Random Link Generator</h1>
+    <div class="button-group">
+      <button id="generateBtn">Generate 10 Links</button>
+      <button id="showSavedBtn">Show Saved Links</button>
+      <button id="clearSavedBtn">Clear Saved Links</button>
+    </div>
+
+    <div id="linksContainer"></div>
+
+    <h2 id="savedLinksHeader" style="display: none">Saved Links</h2>
+    <div id="savedLinksContainer"></div>
+
+    <script src="index.test.js"></script>
+  </body>
+</html>

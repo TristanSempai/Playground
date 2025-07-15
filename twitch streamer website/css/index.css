@@ -1,0 +1,20 @@
+ul {
+    :hover{
+    background-color: blue;
+    }
+    list-style-type: none;
+    display: inline-flex;
+    margin: auto;
+    padding: 0;
+}
+
+body {
+    color: white;
+    text-align: center;
+    background-color: black;
+}
+
+button {
+    background-color: aqua;
+    border-color:paleturquoise ;
+}

@@ -1,0 +1,79 @@
+html{
+    margin: 0%;
+}
+
+body { 
+    margin: 0;
+    width:calc(100vw - 20px);
+    height: calc(100vh - 20px);
+    background-color: rgb(131, 255, 249);
+}
+
+
+#board {
+    margin: 20px auto;
+    width: 433px;
+    height: 433px;
+    border-color: rgb(0, 0, 0);
+    border-width: 15px;
+    border-style: solid;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.square {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    border:solid 2px rgb(204, 0, 0);
+    transition: ease-in-out 0.2s;
+}
+
+
+.colA {left: 0px;}
+.colB {left: 50px;}
+.colC {left: 100px;}
+.colD {left: 150px;}
+.colE {left: 200px;}
+.colF {left: 250px;}
+.colG {left: 300px;}
+.colH {left: 350px;}
+
+.row1 {top:  0px;}
+.row2 {top:  50px;}
+.row3 {top:  100px;}
+.row4 {top:  150px;}
+.row5 {top:  200px;}
+.row6 {top:  250px;}
+.row7 {top:  300px;}
+.row8 {top:  350px;}
+
+.colA:nth-child(even), 
+.colC:nth-child(even),
+.colE:nth-child(even),
+.colG:nth-child(even) {
+    background-color:black ;
+}
+.colB:nth-child(odd), 
+.colD:nth-child(odd),
+.colF:nth-child(odd),
+.colH:nth-child(odd) {
+    background-color:black ;
+}
+
+.colA:nth-child(odd), 
+.colC:nth-child(odd),
+.colE:nth-child(odd),
+.colG:nth-child(odd) {
+    background-color:white ;
+}
+.colB:nth-child(even), 
+.colD:nth-child(even),
+.colF:nth-child(even),
+.colH:nth-child(even) {
+    background-color:white ;
+}
+
+.square:hover {
+    background-color: #888;
+}
