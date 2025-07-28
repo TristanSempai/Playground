@@ -1,0 +1,156 @@
+/* Container for the whole chess UI */
+
+.chess-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 75vh;
+}
+
+/* Side area styles */
+.side-area {
+  width: 75px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 12px 6px;
+  font-size: 12px;
+  box-shadow: 1.5px 0 6px rgba(0, 0, 0, 0.08);
+  border-radius: 9px 0 0 9px;
+  margin-right: 6px;
+}
+.side-black {
+  background: #222;
+  color: #fff;
+  border-right: 3px solid #333;
+}
+.side-white {
+  background: #fff;
+  color: #222;
+  border-left: 3px solid #333;
+  border-radius: 0 12px 12px 0;
+  margin-left: 8px;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.08);
+}
+.side-label {
+  font-weight: bold;
+  margin-bottom: 9px;
+}
+
+/* Captured pieces grid */
+.captured-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  width: 100%;
+}
+.captured-piece {
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  opacity: 0.7;
+  user-select: none;
+  box-shadow: 0 1.5px 4.5px rgba(0, 0, 0, 0.12);
+  margin-bottom: 0px;
+}
+.captured-white {
+  background: #fff;
+  border: 1.5px solid #bbb;
+  color: #222;
+  font-size: 9.75px;
+}
+.captured-black {
+  background: #000;
+  border: 1.5px solid #888;
+  color: #fff;
+  font-size: 7.8px;
+}
+
+/* Chessboard styles */
+.chessboard {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  background: #b58863;
+  border-radius: 9px;
+  box-shadow: 0 3px 18px rgba(0, 0, 0, 0.1);
+  border: 2.25px solid #333;
+}
+
+.square {
+  position: absolute;
+  box-sizing: border-box;
+  border-radius: 4.5px;
+  transition: background 0.2s, border 0.2s;
+  cursor: default;
+}
+.white-square {
+  background: #f0d9b5;
+  border: 0.75px solid #a67c52;
+}
+.black-square {
+  background: #b58863;
+  border: 0.75px solid #a67c52;
+}
+.selected-square {
+  background: #3a7bd5 !important;
+  border: 1.9px solid #2563eb !important;
+  box-shadow: 0 0 9px 1.5px #2563eb55;
+}
+.possible-square {
+  cursor: pointer;
+}
+.same-color-square {
+  background: #22c55e !important;
+  border: 1.9px solid #16a34a !important;
+  box-shadow: 0 0 9px 1.5px #16a34a55;
+}
+.opposite-color-square {
+  background: #ef4444 !important;
+  border: 1.9px solid #b91c1c !important;
+  box-shadow: 0 0 9px 1.5px #b91c1c55;
+}
+.possible-square:not(.same-color-square):not(.opposite-color-square) {
+  background: #3a7bd5 !important;
+  border: 1.9px solid #2563eb !important;
+  box-shadow: 0 0 9px 1.5px #2563eb55;
+}
+
+/* Chess piece styles */
+.piece {
+  position: absolute;
+  border-radius: 50%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 7.8px;
+  user-select: none;
+  box-shadow: 0 1.5px 6px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.18s, left 0.18s, top 0.18s;
+  z-index: 2;
+  cursor: grab;
+}
+.piece-white {
+  background: #fff;
+  border: 1.5px solid #bbb;
+  color: #222;
+}
+.piece-black {
+  background: #222;
+  border: 1.5px solid #444;
+  color: #fff;
+}
+.piece-capturable {
+  cursor: pointer;
+}
+.piece-animating {
+  box-shadow: 0 0 18px 4.5px #2563eb88 !important;
+}
