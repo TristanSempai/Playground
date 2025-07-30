@@ -1,9 +1,12 @@
+import React from "react";
 import "./header.css";
 
 function Header() {
-  <>
-    <h3 className="heading">Chess</h3>
-  </>;
+  return (
+    <>
+      <h3 className="heading">Chess With Extra Steps</h3>
+    </>
+  );
 }
 
 export default Header;
