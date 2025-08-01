@@ -66,6 +66,22 @@ export function useChessBoard(initialSetup) {
     document.body.style.userSelect = "none";
   };
 
+  // Promote pawn to queen if it reaches the last row
+  function promotePawn(squares) {
+    return squares.map((sq) => {
+      if (
+        sq.type === "pawn" &&
+        ((sq.color === "white" && sq.row === 0) ||
+          (sq.color === "black" && sq.row === BOARD_SIZE - 1))
+      ) {
+        // For now, always promote to queen
+        // TODO: Allow user to choose promotion piece (queen, rook, bishop, knight)
+        return { ...sq, type: "queen" };
+      }
+      return sq;
+    });
+  }
+
   const handleMouseUp = useCallback(
     (e) => {
       if (draggedIdx === null) return;
@@ -124,6 +140,8 @@ export function useChessBoard(initialSetup) {
           }
         }
       }
+      // Check for pawn promotion after move
+      newSquares = promotePawn(newSquares);
       setPieceSquares(newSquares);
       setPiecePositions(newPositions);
       setDraggedIdx(null);

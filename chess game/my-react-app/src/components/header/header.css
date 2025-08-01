@@ -1,4 +1,6 @@
 .heading {
   border: 1px solid #888;
   color: aliceblue;
+  margin: 0;
+  padding: 0;
 }

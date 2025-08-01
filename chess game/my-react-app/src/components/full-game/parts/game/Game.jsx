@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
 import "./game.css";
-
+import React, { useEffect } from "react";
+import { useChessBoard } from "./parts/useChessBoard";
 import CapturedGrid from "./parts/CapturedGrid";
+import initialSetup from "./parts/InitialSetup";
 import Chessboard from "./parts/Chessboard";
 import SideArea from "./parts/SideArea";
 import {
@@ -10,40 +11,12 @@ import {
   getPieceClass,
   isLegalMove,
 } from "./parts/gameUtils";
-import { useChessBoard } from "./parts/useChessBoard";
 
 const BOARD_SIZE = 8;
 const squareSize = 37.5; // 50 * 0.75
 const circleSize = 27; // 36 * 0.75
 
-function Game() {
-  const initialSetup = [
-    // Black
-    ["rook", "black", 0, 0],
-    ["knight", "black", 0, 1],
-    ["bishop", "black", 0, 2],
-    ["queen", "black", 0, 3],
-    ["king", "black", 0, 4],
-    ["bishop", "black", 0, 5],
-    ["knight", "black", 0, 6],
-    ["rook", "black", 0, 7],
-    ...Array(8)
-      .fill()
-      .map((_, i) => ["pawn", "black", 1, i]),
-    // White
-    ["rook", "white", 7, 0],
-    ["knight", "white", 7, 1],
-    ["bishop", "white", 7, 2],
-    ["queen", "white", 7, 3],
-    ["king", "white", 7, 4],
-    ["bishop", "white", 7, 5],
-    ["knight", "white", 7, 6],
-    ["rook", "white", 7, 7],
-    ...Array(8)
-      .fill()
-      .map((_, i) => ["pawn", "white", 6, i]),
-  ];
-
+function Game({ onPieceSquaresChange }) {
   const {
     pieceSquares,
     setPieceSquares,
@@ -57,6 +30,11 @@ function Game() {
     handleMouseUp,
     handleMouseMove,
   } = useChessBoard(initialSetup);
+
+  // Notify parent of pieceSquares changes
+  useEffect(() => {
+    if (onPieceSquaresChange) onPieceSquaresChange(pieceSquares);
+  }, [pieceSquares, onPieceSquaresChange]);
 
   useEffect(() => {
     window.addEventListener("mousemove", handleMouseMove);
@@ -76,6 +54,7 @@ function Game() {
           capturedPieceClass={capturedPieceClass}
         />
       </SideArea>
+
       <Chessboard
         renderSquares={() => {
           return Array.from({ length: BOARD_SIZE * BOARD_SIZE }).map(
@@ -253,6 +232,7 @@ function Game() {
           });
         }}
       />
+
       <SideArea color="white">
         <CapturedGrid
           color="white"
